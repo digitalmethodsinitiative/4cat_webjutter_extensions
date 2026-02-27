@@ -38,15 +38,23 @@
     </header>
 
     {% if item.filename and item.filename != '' %}
-        <div class="item-image">
+        <div class="item-media">
             <div class="file-info">
                 File: {{ item.filename }}{{ item.ext }}
                 {% if item.fsize %}({{ item.fsize }}, {{ item.w }}x{{ item.h }}){% endif %}
             </div>
-            {% set image_url = item.tim | chan_image(item.ext, item.board) %}
-            <a href="{{ image_url }}" target="_blank">
-                <img src="{{ image_url }}" alt="{{ item.id }}" loading="lazy">
-            </a>
+
+            {% if item.id in media_files %}
+                {% set media_file = media_files[item.id][0] %}
+                {% set filename = media_file[1] %}
+                {% set file_ext = filename.split(".")[-1].lower() %}
+                {% set dataset_key = media_file[0] %}
+                {% include 'explorer/media.html' %}
+            {% else %}
+               <div class="no-media">
+                    <i class="fa-solid fa-video-slash"></i> Use the <a href="/results/{{ dataset.key }}/#processor-list-item-image-downloader-4chan">Download 4chan images</a> or <a href="/results/{{ dataset.key }}/#processor-list-item-preset-video-downloader-4chan">Download 4chan videos</a> processors to display media here.
+               </div>
+            {% endif %}
         </div>
     {% endif %}
 
