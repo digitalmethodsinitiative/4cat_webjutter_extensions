@@ -62,38 +62,6 @@ See https://github.com/digitalmethodsinitiative/4cat/wiki/Exploring-and-annotati
     margin-left: 5px;
 }
 
-/* Image styling */
-.item-media {
-    float: left;
-    margin: 5px 20px 5px 0;
-    max-width: 250px;
-	min-height: 8em;
-}
-
-.item-media .file-info {
-    font-size: 9pt;
-    margin-bottom: 5px;
-    color: #000;
-    line-height: 1;
-}
-
-.item-media img, .item-media video {
-    display: block;
-    height: auto;
-    border: 1px solid #ccc;
-    max-width: 100%;
-}
-
-.item-media .no-media {
-    background-color: #faf1e9;
-    color: #c6a493;
-    line-height: 1.2;
-    padding: 10px;
-}
-.item-media .no-media a {
-    color: #c6a493;
-}
-
 /* Post content */
 .item-content blockquote {
     margin: 0;
@@ -120,6 +88,39 @@ See https://github.com/digitalmethodsinitiative/4cat/wiki/Exploring-and-annotati
 
 .external-url {
     color: navy;
+}
+
+/* Image styling */
+.item-media {
+    float: left;
+    margin: 5px 20px 5px 0;
+    max-width: 250px;
+	min-height: 8em;
+}
+
+.item-media .file-info {
+    font-size: 9pt;
+    margin-bottom: 5px;
+    color: #000;
+    line-height: 1;
+}
+
+.item-media img, .item-media video {
+    display: block;
+    height: auto;
+    border: 1px solid #ccc;
+    max-width: 100%;
+    max-height: 300px;
+}
+
+.item-media .no-media {
+    background-color: #faf1e9;
+    color: #c6a493;
+    line-height: 1.2;
+    padding: 10px;
+}
+.item-media .no-media a {
+    color: #c6a493;
 }
 
 /* Annotations */
