@@ -264,8 +264,8 @@ class SearchWebjutter(Search):
             self.dataset.update_status("No board selected")
             self.dataset.finish(-1)
             return
-
-        search_query = f"board:{board} AND {search_query}"
+        
+        search_query = f"board:{board} AND {search_query}" if board else search_query
 
         results = []
         total_records = 0
