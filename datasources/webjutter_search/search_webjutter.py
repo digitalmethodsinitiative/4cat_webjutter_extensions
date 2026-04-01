@@ -52,19 +52,19 @@ class SearchWebjutter(Search):
             "type": UserInput.OPTION_TEXT,
             "default": "",
             "help": "The URL to your Webjutter front-end server",
-            "tooltip": "If you're running from Docker, this defaults to <URL>:4228:80",
+            "tooltip": "If 4CAT is running in Docker and Webjutter on localhost or local Docker, use `host.docker.internal` (e.g. `http://host.docker.internal:4228`)",
         },
         "webjutter-search.user": {
             "type": UserInput.OPTION_TEXT,
             "default": "",
             "help": "Webjutter username",
-            "tooltip": "This is defined in the .config file of your Webjutter server",
+            "tooltip": "This is defined in the .env file of your Webjutter server",
         },
         "webjutter-search.password": {
             "type": UserInput.OPTION_TEXT,
             "default": "",
             "help": "Webjutter password",
-            "tooltip": "This is defined in the .config file of your Webjutter server",
+            "tooltip": "This is defined in the .env file of your Webjutter server",
             "sensitive": True,
         },
     }
