@@ -260,7 +260,7 @@ class SearchWebjutter(Search):
 
         # Board
         board = parameters.get("board")
-        if not board:
+        if not board and datasource == "fourchan":
             self.dataset.update_status("No board selected")
             self.dataset.finish(-1)
             return
@@ -273,7 +273,7 @@ class SearchWebjutter(Search):
         has_more = True
         search_after = None  # For ElasticSearch pagination. Used instead of tokens because of large datasets.
 
-        self.dataset.update_status(f"Connecting to Webjutter")
+        self.dataset.update_status("Connecting to Webjutter")
 
         while has_more and retries <= self.max_retries:
             if self.interrupted:
@@ -290,7 +290,7 @@ class SearchWebjutter(Search):
             try:
                 request_results = self.webjutter_search_request(params, datasource, url, user, password)
             except (ConnectionError, Timeout, RequestException, HTTPError, JSONDecodeError) as e:
-                self.dataset.update_status("Error reaching webjutter", str(e))
+                self.dataset.update_status("Error reaching Webjutter", str(e))
                 self.dataset.finish(-1)
                 return
 
